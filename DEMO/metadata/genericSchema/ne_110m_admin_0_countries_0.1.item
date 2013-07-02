@@ -2,7 +2,7 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010">
   <TalendMetadata:GenericSchemaConnection xmi:id="_E2w7MFAdEeKsRuItLXLJkA" dataPackage="_E2w7MVAdEeKsRuItLXLJkA"/>
   <TalendMetadata:GenericPackage xmi:id="_E2w7MVAdEeKsRuItLXLJkA" dataManager="_E2w7MFAdEeKsRuItLXLJkA">
-    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_E2w7MlAdEeKsRuItLXLJkA" id="_EbAMQVAdEeKsRuItLXLJkA" label="metadata">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_E2w7MlAdEeKsRuItLXLJkA" name="metadata" id="_EbAMQVAdEeKsRuItLXLJkA" label="metadata">
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_E2w7M1AdEeKsRuItLXLJkA" label="the_geom" talendType="id_Geometry"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_E2w7NFAdEeKsRuItLXLJkA" label="scalerank" talendType="id_Integer"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_E2w7NVAdEeKsRuItLXLJkA" label="featurecla" talendType="id_String"/>

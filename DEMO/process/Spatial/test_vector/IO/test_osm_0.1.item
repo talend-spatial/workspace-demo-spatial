@@ -6,8 +6,8 @@
     <contextParameter comment="" name="DbPassword" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="www-data"/>
     <contextParameter comment="" name="DbPort" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="5432"/>
     <contextParameter comment="" name="DbUsername" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="www-data"/>
-    <contextParameter comment="" name="DirGeoData" prompt="Select your demo data directory?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="/home/francois/GeoData/"/>
-    <contextParameter comment="" name="DirOutput" prompt="Select your output directory (eg. /tmp)?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="/tmp/"/>
+    <contextParameter comment="Directory with spatial data" name="DirGeoData" prompt="Select your demo data directory?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_Directory" value="/tmp/spatialdemo/"/>
+    <contextParameter comment="Output directory where all sample jobs write new datasets" name="DirOutput" prompt="Select your output directory (eg. /tmp)?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_Directory" value="/tmp/spatialdemo/"/>
     <contextParameter comment="" name="FileBoundaries" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="gboundaries.shp"/>
     <contextParameter comment="" name="FileCatchments" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="CATCHMENTS.MIF"/>
     <contextParameter comment="" name="FileDEM" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="SRTM.tif"/>
@@ -26,7 +26,7 @@
     <contextParameter comment="" name="GeoNetworkUsername" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="admin"/>
     <contextParameter comment="" name="ProjDefaultInput" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="EPSG:4326"/>
     <contextParameter comment="" name="ProjDefaultOutput" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="EPSG:27572"/>
-    <contextParameter comment="" name="SdiDir" prompt="Select your SDI installation directory?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="/home/fxprunayre/eworkspace/runtime-talend.product"/>
+    <contextParameter comment="" name="SdiDir" prompt="Select your SDI installation directory?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_Directory" value="/usr/local/App/talend/TOS_DI-r104014-V5.3.1/workspace/"/>
   </context>
   <parameters>
     <elementParameter field="TEXT" name="JOB_RUN_VM_ARGUMENTS" value=" -Xms256M -Xmx1024M"/>
@@ -37,8 +37,11 @@
     <elementParameter field="TEXT" name="OEM_CUSTOM_ATTRIBUTE" value=""/>
     <elementParameter field="TEXT" name="HADOOP_APP_PATH" value=""/>
     <elementParameter field="TEXT" name="JOBID_FOR_OOZIE" value=""/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value=""/>
+    <elementParameter field="TABLE" name="HADOOP_ADVANCED_PROPERTIES"/>
     <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true"/>
     <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
     <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value=""/>
@@ -46,9 +49,8 @@
     <elementParameter field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value=""/>
     <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false"/>
     <elementParameter field="CHECK" name="DISABLE_INFO" value="false"/>
-    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;/home/francois/Neogeo3/App/Talend/TOS-All-r50363-V4.1.1/workspace/.metadata&quot;"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ojdbc14.jar"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_10"/>
     <routinesParameter id="_n5EUgE9mEeKvF5UivPdF-g" name="DataOperation"/>
     <routinesParameter id="_n4pdwE9mEeKvF5UivPdF-g" name="GeoOperation"/>
     <routinesParameter id="_n45VYE9mEeKvF5UivPdF-g" name="GeometryOperation"/>
@@ -64,21 +66,23 @@
   </parameters>
   <node componentName="sOSMWaysInput" componentVersion="0.1" offsetLabelX="0" offsetLabelY="0" posX="128" posY="224">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sOSMWaysInput_1"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="false"/>
     <elementParameter field="FILE" name="FILENAME" value="context.DirOutput + &quot;test.osm&quot;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <elementParameter field="CHECK" name="INFORMATION" value="false"/>
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="WAYS" name="WAYS">
-      <column defaultValue="" key="false" length="0" name="id" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="tags" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="timestamp" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="username" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="way" nullable="true" precision="0" sourceType="" type="id_Geometry"/>
+      <column defaultValue="" key="false" length="0" name="id" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="tags" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="timestamp" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="username" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="way" nullable="true" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="sShapefileOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="448" posY="224">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sShapefileOutput_1"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true"/>
     <elementParameter field="FILE" name="FILENAME" value="context.DirOutput + &quot;osmways.shp&quot;"/>
     <elementParameter field="CLOSED_LIST" name="GEOMETRY_TYPE" value="com.vividsolutions.jts.geom.LineString"/>
     <elementParameter field="TEXT" name="FORMAT_TYPE" value="SHAPEFILE"/>
@@ -99,30 +103,32 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" name="sShapefileOutput_1">
-      <column defaultValue="" key="false" length="0" name="id" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="tags" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="timestamp" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="username" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="way" nullable="true" precision="0" sourceType="" type="id_Geometry"/>
+      <column defaultValue="" key="false" length="0" name="id" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="tags" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="timestamp" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="username" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="way" nullable="true" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="sOSMNodesInput" componentVersion="0.1" offsetLabelX="0" offsetLabelY="0" posX="128" posY="352">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sOSMNodesInput_1"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="false"/>
     <elementParameter field="FILE" name="FILENAME" value="context.DirOutput + &quot;test.osm&quot;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <elementParameter field="CHECK" name="INFORMATION" value="false"/>
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="NODES" name="NODES">
-      <column defaultValue="" key="false" length="0" name="id" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="tags" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="timestamp" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="username" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="node" nullable="true" precision="0" sourceType="" type="id_Geometry"/>
+      <column defaultValue="" key="false" length="0" name="id" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="tags" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="timestamp" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="username" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="node" nullable="true" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="sShapefileOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="448" posY="352">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sShapefileOutput_2"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true"/>
     <elementParameter field="FILE" name="FILENAME" value="context.DirOutput + &quot;osmnodes.shp&quot;"/>
     <elementParameter field="CLOSED_LIST" name="GEOMETRY_TYPE" value="com.vividsolutions.jts.geom.Point"/>
     <elementParameter field="TEXT" name="FORMAT_TYPE" value="SHAPEFILE"/>
@@ -143,11 +149,11 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" name="sShapefileOutput_2">
-      <column defaultValue="" key="false" length="0" name="id" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="tags" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="timestamp" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="username" nullable="true" precision="0" sourceType="" type="id_String"/>
-      <column defaultValue="" key="false" length="0" name="node" nullable="true" precision="0" sourceType="" type="id_Geometry"/>
+      <column defaultValue="" key="false" length="0" name="id" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="tags" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="timestamp" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="username" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="node" nullable="true" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tFileFetch" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="128" posY="32">

@@ -7,7 +7,7 @@
     </schema>
   </TalendMetadata:XmlFileConnection>
   <TalendMetadata:GenericPackage xmi:id="_oupk12ZyEeCUeI-JLejmbw" dataManager="_oupk02ZyEeCUeI-JLejmbw">
-    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_oupk2GZyEeCUeI-JLejmbw" id="_SUAUcP50EdygX6OZ7aNt1g" label="metadata">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_oupk2GZyEeCUeI-JLejmbw" name="metadata" id="_SUAUcP50EdygX6OZ7aNt1g" label="metadata">
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oupk2WZyEeCUeI-JLejmbw" name="newColumn" label="id" length="-1" precision="-1" talendType="id_String">
         <initialValue xmi:id="_oupk2mZyEeCUeI-JLejmbw" body=""/>
       </feature>

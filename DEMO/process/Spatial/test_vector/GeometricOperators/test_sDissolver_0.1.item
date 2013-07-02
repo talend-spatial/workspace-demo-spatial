@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.talend.org/mapper" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default">
   <context confirmationNeeded="false" name="Default">
-    <contextParameter comment="" name="dataCountry" prompt="dataCountry?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="&quot;ne_110m_admin_0_countries&quot;"/>
-    <contextParameter comment="" name="dataPlaces" prompt="dataPlaces?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="&quot;ne_110m_populated_places&quot;"/>
-    <contextParameter comment="" name="dataRiver" prompt="dataRiver?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="&quot;ne_110m_rivers_lake_centerlines&quot;"/>
+    <contextParameter comment="Natural earth country layer name" name="dataCountry" prompt="dataCountry?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="&quot;ne_110m_admin_0_countries&quot;"/>
+    <contextParameter comment="Natural earth places layer name" name="dataPlaces" prompt="dataPlaces?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="&quot;ne_110m_populated_places&quot;"/>
+    <contextParameter comment="Natural earth rivers layer name" name="dataRiver" prompt="dataRiver?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="&quot;ne_110m_rivers_lake_centerlines&quot;"/>
     <contextParameter comment="" name="DbHost" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="localhost"/>
     <contextParameter comment="" name="DbName" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="talend"/>
     <contextParameter comment="" name="DbPassword" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="www-data"/>
     <contextParameter comment="" name="DbPort" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="5432"/>
     <contextParameter comment="" name="DbUsername" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="www-data"/>
-    <contextParameter comment="" name="DirGeoData" prompt="Select your demo data directory?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="/home/francois/GeoData/"/>
-    <contextParameter comment="" name="DirOutput" prompt="Select your output directory (eg. /tmp)?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="/tmp/"/>
+    <contextParameter comment="Directory with spatial data" name="DirGeoData" prompt="Select your demo data directory?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_Directory" value="/tmp/spatialdemo/"/>
+    <contextParameter comment="Output directory where all sample jobs write new datasets" name="DirOutput" prompt="Select your output directory (eg. /tmp)?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_Directory" value="/tmp/spatialdemo/"/>
     <contextParameter comment="" name="FileBoundaries" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="gboundaries.shp"/>
     <contextParameter comment="" name="FileCatchments" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="CATCHMENTS.MIF"/>
     <contextParameter comment="" name="FileDEM" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="SRTM.tif"/>
@@ -29,7 +29,7 @@
     <contextParameter comment="" name="GeoNetworkUsername" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="admin"/>
     <contextParameter comment="" name="ProjDefaultInput" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="EPSG:4326"/>
     <contextParameter comment="" name="ProjDefaultOutput" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="EPSG:27572"/>
-    <contextParameter comment="" name="SdiDir" prompt="Select your SDI installation directory?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="/home/fxprunayre/eworkspace/runtime-talend.product"/>
+    <contextParameter comment="" name="SdiDir" prompt="Select your SDI installation directory?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_Directory" value="/usr/local/App/talend/TOS_DI-r104014-V5.3.1/workspace/"/>
   </context>
   <parameters>
     <elementParameter field="TEXT" name="JOB_RUN_VM_ARGUMENTS" value=" -Xms256M -Xmx1024M"/>
@@ -40,16 +40,19 @@
     <elementParameter field="TEXT" name="OEM_CUSTOM_ATTRIBUTE" value=""/>
     <elementParameter field="TEXT" name="HADOOP_APP_PATH" value=""/>
     <elementParameter field="TEXT" name="JOBID_FOR_OOZIE" value=""/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value=""/>
+    <elementParameter field="TABLE" name="HADOOP_ADVANCED_PROPERTIES"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
     <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;/home/fxprunayre/eworkspace/runtime-talend.product/in.csv&quot;"/>
     <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value="tDBInput"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value="ojdbc14.jar"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value="ORACLE_10"/>
     <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="FILENAME_STATS" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="FILENAME_LOGS" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="FILENAME_METTER" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
     <elementParameter field="CLOSED_LIST" name="DB_TYPE" value=""/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ojdbc14.jar"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_10"/>
     <routinesParameter id="_n5EUgE9mEeKvF5UivPdF-g" name="DataOperation"/>
     <routinesParameter id="_n4pdwE9mEeKvF5UivPdF-g" name="GeoOperation"/>
     <routinesParameter id="_n45VYE9mEeKvF5UivPdF-g" name="GeometryOperation"/>
@@ -65,6 +68,7 @@
   </parameters>
   <node componentName="sDissolver" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="320" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sDissolver_2"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" value="true"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="PREV_COLUMN_LIST" name="COL" value="the_geom"/>
     <elementParameter field="TEXT" name="OPERATION" value="union"/>
@@ -75,17 +79,18 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" name="sDissolver_2">
-      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double"/>
-      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry"/>
+      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="sShapefileOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="672" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sShapefileOutput_2"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="FILE" name="FILENAME" value="(String)((String)context.getProperty(&quot;DirOutput&quot;))+&quot;catchmentsSecteur.shp&quot;"/>
     <elementParameter field="CLOSED_LIST" name="GEOMETRY_TYPE" value="com.vividsolutions.jts.geom.Polygon"/>
@@ -108,17 +113,18 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" name="sShapefileOutput_2">
-      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double"/>
-      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry"/>
+      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="sDissolver" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="320" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sDissolver_3"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" value="true"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="PREV_COLUMN_LIST" name="COL" value="the_geom"/>
     <elementParameter field="TEXT" name="OPERATION" value="union"/>
@@ -129,17 +135,18 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" name="sDissolver_3">
-      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double"/>
-      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry"/>
+      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="sShapefileOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="672" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sShapefileOutput_3"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="FILE" name="FILENAME" value="(String)((String)context.getProperty(&quot;DirOutput&quot;))+&quot;catchmentsSSecteur.shp&quot;"/>
     <elementParameter field="CLOSED_LIST" name="GEOMETRY_TYPE" value="com.vividsolutions.jts.geom.Polygon"/>
@@ -162,17 +169,18 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" name="sShapefileOutput_3">
-      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double"/>
-      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry"/>
+      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="192" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_1"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" value="true"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
@@ -186,14 +194,14 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" name="newOutput1">
-      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double"/>
-      <column comment="" defaultValue="&quot;1&quot;" key="false" length="0" name="CONSTANT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry"/>
+      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" defaultValue="&quot;1&quot;" key="false" length="0" name="CONSTANT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties/>
@@ -290,18 +298,19 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" name="sDissolver_4">
-      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double"/>
-      <column comment="" defaultValue="&quot;1&quot;" key="false" length="0" name="CONSTANT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry"/>
+      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" defaultValue="&quot;1&quot;" key="false" length="0" name="CONSTANT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="sShapefileOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="672" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sShapefileOutput_4"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="FILE" name="FILENAME" value="(String)((String)context.getProperty(&quot;DirOutput&quot;))+&quot;catchmentsAll.shp&quot;"/>
     <elementParameter field="CLOSED_LIST" name="GEOMETRY_TYPE" value="com.vividsolutions.jts.geom.MultiPolygon"/>
@@ -324,19 +333,20 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" name="sShapefileOutput_4">
-      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String"/>
-      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double"/>
-      <column comment="" defaultValue="&quot;1&quot;" key="false" length="0" name="CONSTANT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String"/>
-      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry"/>
+      <column comment="" key="true" name="CODE" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_REGION" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SECTEUR" nullable="false" originalDbColumnName="newColumn1" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="CD_SSSECTEUR" nullable="false" originalDbColumnName="newColumn2" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="NAME" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" name="PKHEXT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" defaultValue="&quot;1&quot;" key="false" length="0" name="CONSTANT" nullable="false" originalDbColumnName="newColumn" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="0" name="the_geom" nullable="true" originalDbColumnName="newColumn" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="sShapefileInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="32" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sShapefileInput_1"/>
     <elementParameter field="CHECK" name="START" value="true"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="false"/>
     <elementParameter field="FILE" name="FILENAME" value="context.DirOutput + context.dataCountry + &quot;.shp&quot;"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_EbAMQFAdEeKsRuItLXLJkA - metadata"/>
@@ -350,70 +360,70 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" label="metadata" name="sShapefileInput_1">
-      <column comment="" key="false" length="0" name="the_geom" nullable="true" pattern="" precision="0" type="id_Geometry"/>
-      <column comment="" key="false" length="0" name="scalerank" nullable="true" pattern="" precision="0" type="id_Integer"/>
-      <column comment="" key="false" length="0" name="featurecla" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="labelrank" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="sovereignt" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="sov_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="level" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="type" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="admin" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="geou_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="geounit" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="gu_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="su_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="subunit" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="su_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_diff" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="name" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_long" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_name" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_group" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="abbrev" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="postal" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="formal_en" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="formal_fr" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="note_adm0" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="note_brk" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_sort" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_alt" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="mapcolor7" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor8" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor9" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor13" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="pop_est" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="gdp_md_est" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="pop_year" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="lastcensus" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="gdp_year" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="economy" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="income_grp" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wikipedia" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="fips_10" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_a2" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_n3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="un_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wb_a2" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wb_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="woe_id" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="adm0_a3_is" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3_us" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3_un" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="adm0_a3_wb" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="continent" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="region_un" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="subregion" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="region_wb" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="long_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="abbrev_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="tiny" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="homepart" nullable="true" pattern="" precision="0" type="id_Double"/>
+      <column key="false" length="0" name="the_geom" nullable="true" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="scalerank" nullable="true" pattern="" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="featurecla" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="labelrank" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="sovereignt" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="sov_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="level" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="type" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="admin" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="geou_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="geounit" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gu_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="su_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="subunit" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="su_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_diff" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_long" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_name" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_group" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="abbrev" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="postal" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="formal_en" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="formal_fr" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="note_adm0" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="note_brk" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_sort" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_alt" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor7" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor8" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor9" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor13" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="pop_est" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gdp_md_est" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="pop_year" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="lastcensus" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gdp_year" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="economy" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="income_grp" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wikipedia" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="fips_10" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_a2" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_n3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="un_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wb_a2" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wb_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="woe_id" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_is" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_us" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_un" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_wb" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="continent" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="region_un" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="subregion" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="region_wb" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="long_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="abbrev_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="tiny" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="homepart" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tReplicate" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="160" posY="160">
@@ -423,70 +433,70 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" label="metadata" name="tReplicate_1">
-      <column comment="" key="false" length="0" name="the_geom" nullable="true" pattern="" precision="0" type="id_Geometry"/>
-      <column comment="" key="false" length="0" name="scalerank" nullable="true" pattern="" precision="0" type="id_Integer"/>
-      <column comment="" key="false" length="0" name="featurecla" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="labelrank" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="sovereignt" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="sov_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="level" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="type" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="admin" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="geou_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="geounit" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="gu_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="su_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="subunit" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="su_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_diff" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="name" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_long" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_name" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_group" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="abbrev" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="postal" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="formal_en" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="formal_fr" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="note_adm0" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="note_brk" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_sort" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_alt" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="mapcolor7" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor8" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor9" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor13" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="pop_est" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="gdp_md_est" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="pop_year" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="lastcensus" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="gdp_year" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="economy" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="income_grp" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wikipedia" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="fips_10" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_a2" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_n3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="un_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wb_a2" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wb_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="woe_id" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="adm0_a3_is" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3_us" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3_un" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="adm0_a3_wb" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="continent" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="region_un" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="subregion" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="region_wb" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="long_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="abbrev_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="tiny" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="homepart" nullable="true" pattern="" precision="0" type="id_Double"/>
+      <column comment="" key="false" length="0" name="the_geom" nullable="true" pattern="" precision="0" type="id_Geometry" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="scalerank" nullable="true" pattern="" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="featurecla" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="labelrank" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="sovereignt" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="sov_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="level" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="type" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="admin" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="geou_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="geounit" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gu_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="su_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="subunit" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="su_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_diff" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_long" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_name" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_group" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="abbrev" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="postal" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="formal_en" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="formal_fr" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="note_adm0" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="note_brk" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_sort" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_alt" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor7" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor8" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor9" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor13" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="pop_est" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gdp_md_est" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="pop_year" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="lastcensus" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gdp_year" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="economy" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="income_grp" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wikipedia" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="fips_10" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_a2" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_n3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="un_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wb_a2" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wb_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="woe_id" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_is" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_us" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_un" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_wb" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="continent" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="region_un" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="subregion" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="region_wb" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="long_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="abbrev_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="tiny" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="homepart" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="sDissolver" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="320" posY="64">
@@ -500,73 +510,73 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" label="metadata" name="sDissolver_1">
-      <column comment="" key="false" length="0" name="the_geom" nullable="true" pattern="" precision="0" type="id_Geometry"/>
-      <column comment="" key="false" length="0" name="scalerank" nullable="true" pattern="" precision="0" type="id_Integer"/>
-      <column comment="" key="false" length="0" name="featurecla" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="labelrank" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="sovereignt" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="sov_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="level" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="type" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="admin" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="geou_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="geounit" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="gu_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="su_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="subunit" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="su_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_diff" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="name" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_long" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_name" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_group" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="abbrev" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="postal" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="formal_en" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="formal_fr" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="note_adm0" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="note_brk" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_sort" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_alt" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="mapcolor7" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor8" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor9" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor13" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="pop_est" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="gdp_md_est" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="pop_year" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="lastcensus" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="gdp_year" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="economy" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="income_grp" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wikipedia" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="fips_10" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_a2" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_n3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="un_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wb_a2" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wb_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="woe_id" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="adm0_a3_is" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3_us" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3_un" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="adm0_a3_wb" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="continent" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="region_un" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="subregion" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="region_wb" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="long_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="abbrev_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="tiny" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="homepart" nullable="true" pattern="" precision="0" type="id_Double"/>
+      <column comment="" key="false" length="0" name="the_geom" nullable="true" pattern="" precision="0" type="id_Geometry" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="scalerank" nullable="true" pattern="" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="featurecla" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="labelrank" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="sovereignt" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="sov_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="level" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="type" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="admin" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="geou_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="geounit" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gu_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="su_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="subunit" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="su_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_diff" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_long" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_name" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_group" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="abbrev" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="postal" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="formal_en" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="formal_fr" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="note_adm0" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="note_brk" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_sort" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_alt" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor7" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor8" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor9" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor13" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="pop_est" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gdp_md_est" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="pop_year" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="lastcensus" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gdp_year" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="economy" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="income_grp" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wikipedia" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="fips_10" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_a2" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_n3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="un_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wb_a2" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wb_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="woe_id" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_is" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_us" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_un" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_wb" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="continent" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="region_un" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="subregion" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="region_wb" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="long_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="abbrev_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="tiny" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="homepart" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="sSimpleGeomToMulti" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="64">
+  <node componentName="sSimpleGeomToMulti" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="512" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sSimpleGeomToMulti_1"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="import org.talend.sdi.geometry.Geometry;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -574,75 +584,76 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" label="metadata" name="sSimpleGeomToMulti_1">
-      <column comment="" key="false" length="0" name="the_geom" nullable="true" pattern="" precision="0" type="id_Geometry"/>
-      <column comment="" key="false" length="0" name="scalerank" nullable="true" pattern="" precision="0" type="id_Integer"/>
-      <column comment="" key="false" length="0" name="featurecla" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="labelrank" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="sovereignt" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="sov_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="level" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="type" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="admin" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="geou_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="geounit" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="gu_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="su_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="subunit" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="su_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_diff" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="name" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_long" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_name" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_group" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="abbrev" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="postal" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="formal_en" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="formal_fr" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="note_adm0" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="note_brk" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_sort" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_alt" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="mapcolor7" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor8" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor9" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor13" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="pop_est" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="gdp_md_est" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="pop_year" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="lastcensus" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="gdp_year" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="economy" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="income_grp" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wikipedia" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="fips_10" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_a2" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_n3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="un_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wb_a2" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wb_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="woe_id" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="adm0_a3_is" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3_us" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3_un" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="adm0_a3_wb" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="continent" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="region_un" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="subregion" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="region_wb" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="long_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="abbrev_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="tiny" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="homepart" nullable="true" pattern="" precision="0" type="id_Double"/>
+      <column key="false" length="0" name="the_geom" nullable="true" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="scalerank" nullable="true" pattern="" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="featurecla" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="labelrank" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="sovereignt" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="sov_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="level" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="type" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="admin" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="geou_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="geounit" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gu_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="su_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="subunit" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="su_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_diff" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_long" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_name" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_group" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="abbrev" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="postal" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="formal_en" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="formal_fr" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="note_adm0" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="note_brk" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_sort" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_alt" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor7" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor8" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor9" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor13" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="pop_est" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gdp_md_est" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="pop_year" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="lastcensus" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gdp_year" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="economy" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="income_grp" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wikipedia" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="fips_10" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_a2" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_n3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="un_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wb_a2" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wb_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="woe_id" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_is" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_us" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_un" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_wb" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="continent" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="region_un" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="subregion" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="region_wb" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="long_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="abbrev_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="tiny" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="homepart" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="sShapefileOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="672" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sShapefileOutput_1"/>
-    <elementParameter field="FILE" name="FILENAME" value="(String)((String)context.getProperty(&quot;DirOutput&quot;))+&quot;continent.shp&quot;"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true"/>
+    <elementParameter field="FILE" name="FILENAME" value="context.DirOutput + context.dataCountry + &quot;_dissolve.shp&quot;"/>
     <elementParameter field="CLOSED_LIST" name="GEOMETRY_TYPE" value="com.vividsolutions.jts.geom.MultiPolygon"/>
     <elementParameter field="TEXT" name="FORMAT_TYPE" value="SHAPEFILE"/>
     <elementParameter field="CHECK" name="FORCE_CRS" value="false"/>
@@ -663,70 +674,70 @@
     <elementParameter field="MEMO" name="COMMENT" value=""/>
     <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
     <metadata connector="FLOW" label="metadata" name="sShapefileOutput_1">
-      <column comment="" key="false" length="0" name="the_geom" nullable="true" pattern="" precision="0" type="id_Geometry"/>
-      <column comment="" key="false" length="0" name="scalerank" nullable="true" pattern="" precision="0" type="id_Integer"/>
-      <column comment="" key="false" length="0" name="featurecla" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="labelrank" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="sovereignt" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="sov_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="level" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="type" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="admin" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="geou_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="geounit" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="gu_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="su_dif" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="subunit" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="su_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_diff" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="name" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_long" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_name" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="brk_group" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="abbrev" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="postal" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="formal_en" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="formal_fr" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="note_adm0" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="note_brk" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_sort" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_alt" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="mapcolor7" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor8" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor9" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="mapcolor13" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="pop_est" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="gdp_md_est" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="pop_year" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="lastcensus" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="gdp_year" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="economy" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="income_grp" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wikipedia" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="fips_10" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_a2" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="iso_n3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="un_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wb_a2" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="wb_a3" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="woe_id" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="adm0_a3_is" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3_us" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="adm0_a3_un" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="adm0_a3_wb" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="continent" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="region_un" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="subregion" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="region_wb" nullable="true" pattern="" precision="0" type="id_String"/>
-      <column comment="" key="false" length="0" name="name_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="long_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="abbrev_len" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="tiny" nullable="true" pattern="" precision="0" type="id_Double"/>
-      <column comment="" key="false" length="0" name="homepart" nullable="true" pattern="" precision="0" type="id_Double"/>
+      <column comment="" key="false" length="0" name="the_geom" nullable="true" pattern="" precision="0" type="id_Geometry" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="scalerank" nullable="true" pattern="" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="featurecla" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="labelrank" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="sovereignt" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="sov_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="level" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="type" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="admin" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="geou_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="geounit" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gu_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="su_dif" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="subunit" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="su_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_diff" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_long" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_name" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="brk_group" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="abbrev" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="postal" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="formal_en" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="formal_fr" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="note_adm0" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="note_brk" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_sort" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_alt" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor7" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor8" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor9" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="mapcolor13" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="pop_est" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gdp_md_est" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="pop_year" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="lastcensus" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="gdp_year" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="economy" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="income_grp" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wikipedia" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="fips_10" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_a2" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="iso_n3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="un_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wb_a2" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="wb_a3" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="woe_id" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_is" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_us" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_un" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="adm0_a3_wb" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="continent" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="region_un" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="subregion" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="region_wb" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="name_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="long_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="abbrev_len" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="tiny" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="homepart" nullable="true" pattern="" precision="0" type="id_Double" usefulColumn="true"/>
     </metadata>
   </node>
   <connection connectorName="FLOW" label="row5" lineStyle="0" metaname="sDissolver_2" offsetLabelX="0" offsetLabelY="0" source="sDissolver_2" target="sShapefileOutput_2">
@@ -921,7 +932,7 @@
     <elementParameter field="CHECK" name="ACTIVATE" value="true"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row2"/>
   </connection>
-  <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tReplicate_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tReplicate_1" target="sDissolver_3">
+  <connection connectorName="FLOW" label="row9" lineStyle="0" metaname="tReplicate_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tReplicate_1" target="tMap_1">
     <elementParameter field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER">
       <elementValue elementRef="TRACE_COLUMN" value="CODE"/>
@@ -953,7 +964,7 @@
     <elementParameter field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
     <elementParameter field="TABLE" name="THRESHLODS"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row7"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row9"/>
   </connection>
   <connection connectorName="FLOW" label="row3" lineStyle="0" metaname="tReplicate_1" offsetLabelX="0" offsetLabelY="0" outputId="3" source="tReplicate_1" target="sDissolver_2">
     <elementParameter field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
@@ -989,7 +1000,7 @@
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row3"/>
   </connection>
-  <connection connectorName="FLOW" label="row9" lineStyle="0" metaname="tReplicate_1" offsetLabelX="0" offsetLabelY="0" outputId="4" source="tReplicate_1" target="tMap_1">
+  <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tReplicate_1" offsetLabelX="0" offsetLabelY="0" outputId="4" source="tReplicate_1" target="sDissolver_3">
     <elementParameter field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER">
       <elementValue elementRef="TRACE_COLUMN" value="CODE"/>
@@ -1021,7 +1032,7 @@
     <elementParameter field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
     <elementParameter field="TABLE" name="THRESHLODS"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row9"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row7"/>
   </connection>
   <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="sDissolver_1" offsetLabelX="0" offsetLabelY="0" source="sDissolver_1" target="sSimpleGeomToMulti_1">
     <elementParameter field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>

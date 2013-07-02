@@ -2,7 +2,7 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010">
   <TalendMetadata:GenericSchemaConnection xmi:id="_2oE2oFAWEeKBc97XVWoyFg" dataPackage="_2oE2oVAWEeKBc97XVWoyFg"/>
   <TalendMetadata:GenericPackage xmi:id="_2oE2oVAWEeKBc97XVWoyFg" dataManager="_2oE2oFAWEeKBc97XVWoyFg">
-    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_2oE2olAWEeKBc97XVWoyFg" id="_10caQFAWEeKBc97XVWoyFg" label="metadata">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_2oE2olAWEeKBc97XVWoyFg" name="metadata" id="_10caQFAWEeKBc97XVWoyFg" label="metadata">
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_2oE2o1AWEeKBc97XVWoyFg" label="msGeometry" talendType="id_Geometry"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_2oE2pFAWEeKBc97XVWoyFg" label="S_ID" talendType="id_String"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_2oE2pVAWEeKBc97XVWoyFg" label="S_C_ID" talendType="id_String"/>
