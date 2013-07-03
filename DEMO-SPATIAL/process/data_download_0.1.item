@@ -3,34 +3,34 @@
   <context confirmationNeeded="false" name="Default">
     <contextParameter comment="Natural earth country layer name" name="dataCountry" prompt="dataCountry?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="&quot;ne_110m_admin_0_countries&quot;"/>
     <contextParameter comment="Natural earth places layer name" name="dataPlaces" prompt="dataPlaces?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="&quot;ne_110m_populated_places&quot;"/>
-    <contextParameter comment="" name="dataRaster" prompt="dataRaster?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="&quot;GRAY_50M_SR_OB&quot;"/>
+    <contextParameter comment="Natural earth raster layer" name="dataRaster" prompt="dataRaster?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="&quot;GRAY_50M_SR_OB&quot;"/>
     <contextParameter comment="Natural earth rivers layer name" name="dataRiver" prompt="dataRiver?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="&quot;ne_110m_rivers_lake_centerlines&quot;"/>
-    <contextParameter comment="" name="DbHost" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="localhost"/>
-    <contextParameter comment="" name="DbName" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="talend"/>
-    <contextParameter comment="" name="DbPassword" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="www-data"/>
-    <contextParameter comment="" name="DbPort" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="5432"/>
-    <contextParameter comment="" name="DbUsername" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="www-data"/>
-    <contextParameter comment="Directory with spatial data" name="DirGeoData" prompt="Select your demo data directory?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_Directory" value="/tmp/spatialdemo/"/>
+    <contextParameter comment="Database host" name="DbHost" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="localhost"/>
+    <contextParameter comment="Database name" name="DbName" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="talend"/>
+    <contextParameter comment="Database user password" name="DbPassword" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="www-data"/>
+    <contextParameter comment="Database port" name="DbPort" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="5432"/>
+    <contextParameter comment="Database user name" name="DbUsername" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="www-data"/>
+    <contextParameter comment="Directory with spatial data" name="DirGeoData" prompt="Select your demo data directory?" promptNeeded="false" type="id_Directory" value="/tmp/spatialdemo/"/>
     <contextParameter comment="Output directory where all sample jobs write new datasets" name="DirOutput" prompt="Select your output directory (eg. /tmp)?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_Directory" value="/tmp/spatialdemo/"/>
-    <contextParameter comment="" name="FileBoundaries" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="gboundaries.shp"/>
-    <contextParameter comment="" name="FileCatchments" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="CATCHMENTS.MIF"/>
-    <contextParameter comment="" name="FileDEM" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="SRTM.tif"/>
-    <contextParameter comment="" name="FileLine" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="geomLine.shp"/>
-    <contextParameter comment="" name="FilePoint" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="geomPoint.shp"/>
-    <contextParameter comment="" name="FilePolygon" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="geomPoly.shp"/>
-    <contextParameter comment="" name="FileRivers" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="CCMRIVERS.shp"/>
-    <contextParameter comment="" name="FileStation" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="stations.txt"/>
-    <contextParameter comment="" name="FileStationsShp" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="station.shp"/>
-    <contextParameter comment="" name="FileStationsShpLIIE" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="stationlIIe.shp"/>
-    <contextParameter comment="" name="FileValidation" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="validation.shp"/>
-    <contextParameter comment="" name="GeoNetworkHost" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="http://localhost"/>
-    <contextParameter comment="" name="GeoNetworkPassword" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="admin"/>
-    <contextParameter comment="" name="GeoNetworkPort" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_Integer" value="8080"/>
+    <contextParameter comment="" name="FileBoundaries" prompt="new1?" promptNeeded="false" type="id_String" value="gboundaries.shp"/>
+    <contextParameter comment="" name="FileCatchments" prompt="new1?" promptNeeded="false" type="id_String" value="CATCHMENTS.MIF"/>
+    <contextParameter comment="" name="FileDEM" prompt="new1?" promptNeeded="false" type="id_String" value="SRTM.tif"/>
+    <contextParameter comment="" name="FileLine" prompt="new1?" promptNeeded="false" type="id_String" value="geomLine.shp"/>
+    <contextParameter comment="" name="FilePoint" prompt="new1?" promptNeeded="false" type="id_String" value="geomPoint.shp"/>
+    <contextParameter comment="" name="FilePolygon" prompt="new1?" promptNeeded="false" type="id_String" value="geomPoly.shp"/>
+    <contextParameter comment="" name="FileRivers" prompt="new1?" promptNeeded="false" type="id_String" value="CCMRIVERS.shp"/>
+    <contextParameter comment="" name="FileStation" prompt="new1?" promptNeeded="false" type="id_String" value="stations.txt"/>
+    <contextParameter comment="" name="FileStationsShp" prompt="new1?" promptNeeded="false" type="id_String" value="station.shp"/>
+    <contextParameter comment="" name="FileStationsShpLIIE" prompt="new1?" promptNeeded="false" type="id_String" value="stationlIIe.shp"/>
+    <contextParameter comment="" name="FileValidation" prompt="new1?" promptNeeded="false" type="id_String" value="validation.shp"/>
+    <contextParameter comment="Catalog host" name="GeoNetworkHost" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="http://localhost"/>
+    <contextParameter comment="Catalog user password" name="GeoNetworkPassword" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="admin"/>
+    <contextParameter comment="Catalog port" name="GeoNetworkPort" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_Integer" value="8080"/>
     <contextParameter comment="" name="GeoNetworkServlet" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="geonetwork"/>
-    <contextParameter comment="" name="GeoNetworkUsername" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="admin"/>
-    <contextParameter comment="" name="ProjDefaultInput" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="EPSG:4326"/>
-    <contextParameter comment="" name="ProjDefaultOutput" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="EPSG:27572"/>
-    <contextParameter comment="" name="SdiDir" prompt="Select your SDI installation directory?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_Directory" value="/usr/local/App/talend/TOS_DI-r104014-V5.3.1/workspace/"/>
+    <contextParameter comment="Catalog username" name="GeoNetworkUsername" prompt="new1?" promptNeeded="false" repositoryContextId="_vPMfsJELEdyAreiji0zYBg" type="id_String" value="admin"/>
+    <contextParameter comment="" name="ProjDefaultInput" prompt="new1?" promptNeeded="false" type="id_String" value="EPSG:4326"/>
+    <contextParameter comment="" name="ProjDefaultOutput" prompt="new1?" promptNeeded="false" type="id_String" value="EPSG:27572"/>
+    <contextParameter comment="" name="SdiDir" prompt="Select your SDI installation directory?" promptNeeded="false" type="id_Directory" value="/usr/local/App/talend/TOS_DI-r104014-V5.3.1/workspace/"/>
   </context>
   <parameters>
     <elementParameter field="TEXT" name="JOB_RUN_VM_ARGUMENTS" value=" -Xms256M -Xmx1024M"/>
