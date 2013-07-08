@@ -39,11 +39,37 @@
     <routinesParameter id="_n49m0E9mEeKvF5UivPdF-g" name="TalendDate"/>
     <routinesParameter id="_n5B4QE9mEeKvF5UivPdF-g" name="TalendString"/>
   </parameters>
-  <node componentName="sOSMWaysInput" componentVersion="0.1" offsetLabelX="0" offsetLabelY="0" posX="96" posY="96">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="sOSMWaysInput_1"/>
+  <node componentName="tFileList" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="96">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileList_1"/>
     <elementParameter field="CHECK" name="START" value="true"/>
+    <elementParameter field="DIRECTORY" name="DIRECTORY" value="context.DirOutput"/>
+    <elementParameter field="CLOSED_LIST" name="LIST_MODE" value="FILES"/>
+    <elementParameter field="CHECK" name="INCLUDSUBDIR" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="CASE_SENSITIVE" value="YES"/>
+    <elementParameter field="CHECK" name="ERROR" value="false"/>
+    <elementParameter field="CHECK" name="GLOBEXPRESSIONS" value="false"/>
+    <elementParameter field="TABLE" name="FILES">
+      <elementValue elementRef="FILEMASK" value="&quot;osm-.*osm&quot;"/>
+    </elementParameter>
+    <elementParameter field="RADIO" name="ORDER_BY_NOTHING" value="true"/>
+    <elementParameter field="RADIO" name="ORDER_BY_FILENAME" value="false"/>
+    <elementParameter field="RADIO" name="ORDER_BY_FILESIZE" value="false"/>
+    <elementParameter field="RADIO" name="ORDER_BY_MODIFIEDDATE" value="false"/>
+    <elementParameter field="RADIO" name="ORDER_ACTION_ASC" value="true"/>
+    <elementParameter field="RADIO" name="ORDER_ACTION_DESC" value="false"/>
+    <elementParameter field="CHECK" name="IFEXCLUDE" value="false"/>
+    <elementParameter field="TEXT" name="EXCLUDEFILEMASK" value="&quot;*.txt&quot;"/>
+    <elementParameter field="CHECK" name="FORMAT_FILEPATH_TO_SLASH" value="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter field="MEMO" name="COMMENT" value=""/>
+    <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
+  </node>
+  <node componentName="sOSMWaysInput" componentVersion="0.1" offsetLabelX="0" offsetLabelY="0" posX="128" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="sOSMWaysInput_1"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" value="false"/>
     <elementParameter field="CHECK" name="END_OF_FLOW" value="false"/>
-    <elementParameter field="FILE" name="FILENAME" value="context.DirOutput + &quot;test.osm&quot;"/>
+    <elementParameter field="FILE" name="FILENAME" value="((String)globalMap.get(&quot;tFileList_1_CURRENT_FILEPATH&quot;))"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <elementParameter field="CHECK" name="INFORMATION" value="false"/>
     <elementParameter field="MEMO" name="COMMENT" value=""/>
@@ -56,7 +82,7 @@
       <column defaultValue="" key="false" length="0" name="way" nullable="true" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="224" posY="96">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="256" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_1"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
@@ -115,7 +141,7 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="sSimplePolygonizer" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="416" posY="96">
+  <node componentName="sSimplePolygonizer" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="448" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sSimplePolygonizer_1"/>
     <elementParameter field="TEXT" name="OPERATION_TYPE" value="POLYGONIZER"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="import org.talend.sdi.geometry.Geometry;"/>
@@ -133,10 +159,10 @@
       <column comment="" key="false" name="name" nullable="true" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="sShapefileOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="640" posY="96">
+  <node componentName="sShapefileOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="672" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sShapefileOutput_2"/>
     <elementParameter field="CHECK" name="END_OF_FLOW" value="true"/>
-    <elementParameter field="FILE" name="FILENAME" value="context.DirOutput + &quot;osmpolygonizer.shp&quot;"/>
+    <elementParameter field="FILE" name="FILENAME" value="((String)globalMap.get(&quot;tFileList_1_CURRENT_FILEPATH&quot;)) + &quot;-buildings.shp&quot;"/>
     <elementParameter field="CLOSED_LIST" name="GEOMETRY_TYPE" value="com.vividsolutions.jts.geom.MultiPolygon"/>
     <elementParameter field="TEXT" name="FORMAT_TYPE" value="SHAPEFILE"/>
     <elementParameter field="CHECK" name="FORCE_CRS" value="false"/>
@@ -165,10 +191,10 @@
       <column comment="" key="false" name="name" nullable="true" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="sShapefileOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="384" posY="224">
+  <node componentName="sShapefileOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="416" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="sShapefileOutput_1"/>
     <elementParameter field="CHECK" name="END_OF_FLOW" value="true"/>
-    <elementParameter field="FILE" name="FILENAME" value="context.DirOutput + &quot;osmnotbuilding.shp&quot;"/>
+    <elementParameter field="FILE" name="FILENAME" value="((String)globalMap.get(&quot;tFileList_1_CURRENT_FILEPATH&quot;)) + &quot;-notbuilding.shp&quot;"/>
     <elementParameter field="CLOSED_LIST" name="GEOMETRY_TYPE" value="com.vividsolutions.jts.geom.LineString"/>
     <elementParameter field="TEXT" name="FORMAT_TYPE" value="SHAPEFILE"/>
     <elementParameter field="CHECK" name="FORCE_CRS" value="false"/>
@@ -195,6 +221,12 @@
       <column defaultValue="" key="false" length="0" name="way" nullable="true" precision="0" sourceType="" type="id_Geometry" usefulColumn="true"/>
     </metadata>
   </node>
+  <connection connectorName="ITERATE" label="Iterate" lineStyle="7" metaname="tFileList_1" offsetLabelX="0" offsetLabelY="0" source="tFileList_1" target="sOSMWaysInput_1">
+    <elementParameter field="CHECK" name="ENABLE_PARALLEL" value="false"/>
+    <elementParameter field="TEXT" name="NUMBER_PARALLEL" value="2"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="iterate1"/>
+  </connection>
   <connection connectorName="WAYS" label="row1" lineStyle="0" metaname="WAYS" offsetLabelX="0" offsetLabelY="0" source="sOSMWaysInput_1" target="tMap_1">
     <elementParameter field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER">
@@ -320,7 +352,7 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row2"/>
   </connection>
   <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="sOSMWaysInput_1"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileList_1"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
   </subjob>
